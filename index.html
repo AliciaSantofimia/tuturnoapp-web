@@ -5,9 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>TuTurnoApp | App de reservas para talleres creativos</title>
-  <meta name="description" content="TuTurnoApp es una app de reservas para talleres creativos. Organiza clases, plazas, pagos, bonos y tarjetas regalo de forma sencilla." />
+
+  <meta name="description" content="TuTurnoApp es una app de reservas para talleres creativos como cerámica, pintura, fotografía o costura. Permite organizar plazas, pagos, bonos y tarjetas regalo de forma sencilla." />
+
   <link rel="canonical" href="https://www.tuturnoapp.es/" />
+
   <meta name="robots" content="index, follow" />
+
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <meta name="robots" content="index, follow" />
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="TuTurnoApp | App de reservas para talleres creativos">
+  <meta property="og:description" content="Organiza reservas, plazas y pagos de tu taller creativo con TuTurnoApp.">
+  <meta property="og:url" content="https://www.tuturnoapp.es/">
+  <meta property="og:image" content="https://www.tuturnoapp.es/preview.jpg">
 
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="es_ES" />
@@ -283,9 +295,7 @@
     .margin-note strong { display: block; margin-bottom: 6px; }
 
     .visual-board {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
+      display: block;
       align-content: start;
     }
 
@@ -311,117 +321,79 @@
       z-index: 2;
     }
 
-    .polaroid {
-      padding: 18px 18px 22px;
-      background: #fffefc;
+    .carousel-card {
+      padding: 20px 20px 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(251,248,242,0.96));
     }
 
-    .polaroid-photo {
-      height: 260px;
-      border-radius: 18px;
-      border: 1px solid rgba(63,50,43,0.10);
-      background:
-        linear-gradient(135deg, rgba(201,138,113,0.14), rgba(123,140,171,0.08)),
-        linear-gradient(180deg, #f9f1ea, #efe5db);
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
+    .carousel-shell {
+      margin-top: 10px;
     }
 
-    .app-mockup {
-      width: 78%;
-      max-width: 260px;
-      background: #fff;
-      border-radius: 28px;
-      border: 8px solid #322821;
-      box-shadow: 0 16px 24px rgba(63,50,43,0.12);
-      padding: 12px 12px 16px;
-      position: relative;
+    .carousel-frame {
+  position: relative;
+  height: 520px;
+  border-radius: 20px;
+  border: 1px solid rgba(63,50,43,0.10);
+  overflow: hidden;
+  background: #f7f3ed;
+}
+
+.carousel-track {
+  display: flex;
+  width: 500%;
+  height: 100%;
+  transition: transform 0.45s ease;
+}
+
+.carousel-slide {
+  width: 20%;
+  height: 100%;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f7f3ed;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+#slide1:checked ~ .carousel-shell .carousel-dots label[for="slide1"],
+#slide2:checked ~ .carousel-shell .carousel-dots label[for="slide2"],
+#slide3:checked ~ .carousel-shell .carousel-dots label[for="slide3"],
+#slide4:checked ~ .carousel-shell .carousel-dots label[for="slide4"],
+#slide5:checked ~ .carousel-shell .carousel-dots label[for="slide5"] {
+  background: var(--terracotta);
+  transform: scale(1.15);
+}
+
+    #slide1:checked ~ .carousel-shell .carousel-dots label[for="slide1"],
+    #slide2:checked ~ .carousel-shell .carousel-dots label[for="slide2"],
+    #slide3:checked ~ .carousel-shell .carousel-dots label[for="slide3"],
+    #slide4:checked ~ .carousel-shell .carousel-dots label[for="slide4"] {
+      background: var(--terracotta);
+      transform: scale(1.15);
     }
 
-    .app-mockup::before {
-      content: "";
-      position: absolute;
-      top: 8px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 74px;
-      height: 10px;
-      border-radius: 999px;
-      background: #322821;
-    }
-
-    .screen {
-      margin-top: 14px;
-      border-radius: 18px;
-      background: linear-gradient(180deg, #faf1eb, #f4ece3);
-      padding: 14px;
-    }
-
-    .screen h3 {
-      margin: 0 0 12px;
-      font-size: 0.95rem;
-      color: var(--ink);
-    }
-
-    .screen .line {
-      height: 10px;
-      border-radius: 999px;
-      background: rgba(63,50,43,0.10);
-      margin-bottom: 8px;
-    }
-
-    .screen .line.short { width: 62%; }
-    .screen .line.mid { width: 78%; }
-
-    .screen .card-mini {
-      margin-top: 12px;
-      border-radius: 16px;
-      padding: 10px;
-      background: #fff;
-      box-shadow: 0 8px 14px rgba(63,50,43,0.06);
-    }
-
-    .screen .pill {
-      display: inline-block;
-      margin-top: 8px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(201,138,113,0.16);
-      font-size: 0.75rem;
-      color: var(--ink);
-    }
-
-    .caption {
-      margin-top: 14px;
-      color: var(--muted);
-      font-size: 0.98rem;
-      line-height: 1.55;
-      white-space: pre-line;
-    }
-
-    .note-card {
-      padding: 26px 24px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(251,248,242,0.94));
-      min-height: 100%;
-    }
-
-    .note-card h3 {
-      margin: 8px 0 14px;
-      font-size: 1.6rem;
+    .carousel-copy h3 {
+      margin: 0 0 14px;
+      font-size: 1.7rem;
       letter-spacing: -0.03em;
-      white-space: pre-line;
+      line-height: 1.12;
     }
 
-    .note-card p {
+    .carousel-copy p {
       margin: 0 0 12px;
       color: var(--muted);
       line-height: 1.7;
       font-size: 1rem;
-      white-space: pre-line;
     }
 
     .mini-tags {
@@ -540,32 +512,25 @@
         margin-top: 18px;
       }
 
-      .visual-board {
-        grid-template-columns: 1fr 1fr;
-      }
-
       .span-12, .span-7, .span-5, .span-8, .span-4, .span-6 {
         grid-column: span 12;
       }
     }
 
     @media (max-width: 760px) {
-      .page { padding: 16px 12px 40px; }
-      .topbar { flex-direction: column; align-items: flex-start; }
-      .nav { gap: 14px; }
-      .hero { gap: 18px; }
-      .sheet-inner { padding: 30px 22px 24px; }
-      .visual-board { grid-template-columns: 1fr; }
-      h1 {
-        font-size: clamp(2.4rem, 11vw, 4rem);
-        max-width: 100%;
+  .carousel-frame {
+    height: 420px;
+  }
+
+  .carousel-copy h3 {
+    font-size: 1.45rem;
+  }
+}
+
+      .carousel-copy h3 {
+        font-size: 1.45rem;
       }
-      .intro p { font-size: 1rem; }
-      .card-inner { padding: 26px 22px 22px; }
-      .cta-row { flex-direction: column; }
-      .btn { text-align: center; }
-      .mail-link { width: 100%; text-align: center; }
-    }
+    
   </style>
 </head>
 <body>
@@ -607,43 +572,62 @@ de tu taller</div>
       </article>
 
       <aside class="visual-board">
-        <article class="scrap polaroid">
-          <div class="polaroid-photo">
-            <div class="app-mockup">
-              <div class="screen">
-                <h3>Reserva tu clase</h3>
-                <div class="line mid"></div>
-                <div class="line short"></div>
-                <div class="card-mini">
-                  <div class="line"></div>
-                  <div class="line short"></div>
-                  <span class="pill">Confirmar reserva</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="caption">El taller tiene
-todo organizado
-en un solo lugar</div>
-        </article>
+  <article class="scrap carousel-card">
+    <input class="carousel-input" type="radio" name="hero-carousel" id="slide1" checked>
+    <input class="carousel-input" type="radio" name="hero-carousel" id="slide2">
+    <input class="carousel-input" type="radio" name="hero-carousel" id="slide3">
+    <input class="carousel-input" type="radio" name="hero-carousel" id="slide4">
+    <input class="carousel-input" type="radio" name="hero-carousel" id="slide5">
 
-        <article class="scrap note-card">
-          <h3>Como una libreta
-de reservas
-pero digital</h3>
-          <p>Una herramienta sencilla
-para talleres que prefieren
-usar el tiempo en crear antes que en organizar</p>
-
-          <div class="mini-tags">
-            <span>Reservas</span>
-            <span>Bonos</span>
-            <span>Pagos</span>
-            <span>Usuarios</span>
-            <span>Panel admin</span>
+    <div class="carousel-shell">
+      <div class="carousel-frame">
+        <div class="carousel-track">
+          <div class="carousel-slide">
+            <img src="img/pantalla1.jpg" alt="Pantalla de reserva de clase en TuTurnoApp">
+            <div class="carousel-badge">Reserva tu clase</div>
           </div>
-        </article>
-      </aside>
+          <div class="carousel-slide">
+            <img src="img/movil 2.jpg" alt="Pantalla para elegir dónde reservar en TuTurnoApp">
+            <div class="carousel-badge">Elige ubicación</div>
+          </div>
+          <div class="carousel-slide">
+            <img src="img/movil 3.jpg" alt="Pantalla de talleres disponibles en TuTurnoApp">
+            <div class="carousel-badge">Talleres disponibles</div>
+          </div>
+          <div class="carousel-slide">
+            <img src="img/movil 4.jpg" alt="Pantalla de reserva de plaza en TuTurnoApp">
+            <div class="carousel-badge">Reserva tu plaza</div>
+          </div>
+          <div class="carousel-slide">
+            <img src="img/movil 5.jpg" alt="Pantalla de perfil de usuario en TuTurnoApp">
+            <div class="carousel-badge">Tu perfil</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-dots">
+        <label for="slide1" aria-label="Ver pantalla 1"></label>
+        <label for="slide2" aria-label="Ver pantalla 2"></label>
+        <label for="slide3" aria-label="Ver pantalla 3"></label>
+        <label for="slide4" aria-label="Ver pantalla 4"></label>
+        <label for="slide5" aria-label="Ver pantalla 5"></label>
+      </div>
+
+      <div class="carousel-copy">
+        <h3>Como una libreta de reservas,<br>pero digital</h3>
+        <p>Una herramienta sencilla para talleres que prefieren usar el tiempo en crear antes que en organizar.</p>
+
+        <div class="mini-tags">
+          <span>Reservas</span>
+          <span>Bonos</span>
+          <span>Pagos</span>
+          <span>Usuarios</span>
+          <span>Panel admin</span>
+        </div>
+      </div>
+    </div>
+  </article>
+</aside>
     </section>
 
     <section class="section" id="app">
