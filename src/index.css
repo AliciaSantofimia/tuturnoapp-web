@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #f6f1e8;
+  --color-surface: #efe6d7;
+  --color-beige: #d5c0a5;
+  --color-sage: #b9b07b;
+  --color-rose-clay: #ba7770;
+  --color-sand: #edce91;
+  --color-olive: #71744f;
+  --color-burgundy: #5c2120;
+  --color-text: #2f2a26;
+
+  --color-elevated: #fffaf3;
+  --color-border: color-mix(in srgb, var(--color-text) 9%, var(--color-bg));
+  --color-border-strong: color-mix(in srgb, var(--color-text) 14%, var(--color-surface));
+  --color-text-muted: color-mix(in srgb, var(--color-text) 55%, var(--color-bg));
+  --color-on-dark: #f6f1e8;
+  --color-on-dark-muted: color-mix(in srgb, var(--color-on-dark) 72%, transparent);
+
+  --color-olive-hover: color-mix(in srgb, var(--color-burgundy) 12%, var(--color-olive));
+  --color-burgundy-hover: color-mix(in srgb, var(--color-rose-clay) 18%, var(--color-burgundy));
+
+  --shadow-soft: 0 32px 80px -28px color-mix(in srgb, var(--color-burgundy) 18%, transparent);
+  --shadow-card: 0 8px 32px -10px color-mix(in srgb, var(--color-text) 12%, transparent);
+  --shadow-float: 0 18px 50px -20px color-mix(in srgb, var(--color-text) 16%, transparent);
+
+  --grain-opacity: 0.04;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-tt-bg font-sans text-tt-text antialiased;
+  }
+  ::selection {
+    background: color-mix(in srgb, var(--color-sand) 55%, transparent);
+    color: var(--color-text);
+  }
+}
+
+@layer utilities {
+  .bg-grain {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  }
+
+  .bg-feature-beige {
+    background: linear-gradient(
+      152deg,
+      color-mix(in srgb, var(--color-beige) 32%, var(--color-bg)) 0%,
+      var(--color-elevated) 100%
+    );
+  }
+  .bg-feature-sage {
+    background: linear-gradient(
+      152deg,
+      color-mix(in srgb, var(--color-sage) 26%, var(--color-bg)) 0%,
+      var(--color-elevated) 100%
+    );
+  }
+  .bg-feature-rose {
+    background: linear-gradient(
+      152deg,
+      color-mix(in srgb, var(--color-rose-clay) 18%, var(--color-bg)) 0%,
+      var(--color-elevated) 100%
+    );
+  }
+  .bg-feature-sand {
+    background: linear-gradient(
+      152deg,
+      color-mix(in srgb, var(--color-sand) 38%, var(--color-bg)) 0%,
+      var(--color-elevated) 100%
+    );
+  }
+  .bg-feature-olive {
+    background: linear-gradient(
+      152deg,
+      color-mix(in srgb, var(--color-olive) 14%, var(--color-bg)) 0%,
+      var(--color-elevated) 100%
+    );
+  }
+
+  .bg-pullquote {
+    background: color-mix(in srgb, var(--color-sand) 22%, var(--color-bg));
+    border-left: 3px solid var(--color-rose-clay);
+  }
+
+  .text-balance-safe {
+    text-wrap: balance;
+  }
+
+  /* Sobre mí: retrato editorial (calidez suave, sin look “filtro de app”) */
+  .about-portrait-photo {
+    object-fit: cover;
+    object-position: center 46%;
+    filter: brightness(1.03) contrast(1.02) saturate(0.93) sepia(0.05);
+  }
+  @media (min-width: 640px) {
+    .about-portrait-photo {
+      object-position: center 42%;
+    }
+  }
+  @media (min-width: 1024px) {
+    .about-portrait-photo {
+      object-position: center 38%;
+    }
+  }
+}
